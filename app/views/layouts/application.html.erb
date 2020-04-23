@@ -12,7 +12,8 @@
   <body>
     <%= render 'header' %>
     <div class="container-fluid content">
-        <%= yield %>
+      <h1><%= yield :page_title %></h1>
+      <%= yield %>
     </div>
     <%= render 'footer' %>
   </body>

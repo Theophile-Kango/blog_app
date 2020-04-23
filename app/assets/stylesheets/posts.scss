@@ -76,7 +76,8 @@ $grey: #ddd;
 
 }
 
-.new_post{
+.new_post,
+.edit_post{
     background: $grey;
     display: flex;
     flex-direction: column;
@@ -112,4 +113,31 @@ $grey: #ddd;
     p{
         font-size: 1.5em;
     }
+}
+
+.edit-delete{
+    display: flex;
+    justify-content: flex-end;
+    #edit,
+    #delete {
+        width: 150px;
+        height: 30px;
+        border: none;
+        margin: 20px;
+        a{
+            color: $white;
+            text-decoration: none;
+        }
+    }
+    #edit{
+        background: $font-color;
+    }
+    #delete{
+        background: rgb(219, 8, 8);
+    }
+}
+
+#count{
+    padding: 20px;
+    color: $green;
 }

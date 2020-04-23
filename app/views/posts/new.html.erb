@@ -1,8 +1,2 @@
-<h1>Create a post</h1>
-<%= form_for @post do |f| %>
-<%= f.label :title %>
-<%= f.text_field :title %>
-<%= f.label :content %>
-<%= f.text_area :content %>
-<%= f.submit 'New Post' %>
-<% end %>
+<%= content_for :page_title, "Create Post" %>
+<%= render "form" %>
