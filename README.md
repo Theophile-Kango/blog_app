@@ -4,7 +4,7 @@
 
 ## Live version
 
-[Live Demo](https://lit-earth-84803.herokuapp.com)
+[Live Demo](https://new-blog-2020.herokuapp.com/)
 
 ## Built With
 
