@@ -96,6 +96,14 @@ $red: rgb(219, 8, 8);
     flex-direction: column;
     padding: 30px;
     margin: 10px;
+    ul{
+        background: rgb(219, 141, 141);
+        display: flex;
+        flex-direction: column;
+        li{
+            color: $red;
+        }
+    }
     label{
         font-size: 1.2em;
     }
@@ -106,6 +114,7 @@ $red: rgb(219, 8, 8);
         padding: 10px;
         font-size: 1.2em;
         margin-bottom: 20px;
+        width: 100%;
     }
     #post_content,
     #comment_comment{
