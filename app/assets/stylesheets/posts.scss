@@ -1,0 +1,169 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$font-color: rgb(6, 3, 43);
+$green: green;
+$white: white;
+$black: rgb(51, 48, 48);
+$grey: #ddd;
+$red: rgb(219, 8, 8);
+
+@mixin hover-color {
+    border: 1px solid $green;
+    border-radius: 10px;
+}
+
+@mixin list {
+    li{
+        display: flex;
+        flex-direction: column;
+        width: 80px;
+        text-align: center;
+        font-size: 1.2em;
+        margin: 10px;
+        &:hover{
+            @include hover-color
+        }
+        a{
+            color: $white;
+            text-decoration: none;
+        }
+        &:hover{
+            color: $grey;
+        }
+    }
+}
+
+@mixin delete {
+    width: 150px;
+    height: 30px;
+    border: none;
+    margin: 20px;
+    a{
+        color: $white;
+        text-decoration: none;
+    }
+}
+
+.header{
+    display: flex;
+    background: $font-color;
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    h1 {
+        font-size: 2em;
+        margin-left: 50px;
+        a{
+            color: $white;
+            text-decoration: none;
+        } 
+    }
+
+    nav{
+        display: flex;
+        justify-content: flex-end;
+        width: 80%;
+        @include list;
+    }
+}
+
+.footer{
+    background: $black;
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    flex-direction: column;
+    align-items: center;
+    color: $white;
+    width: 100%;
+    height: 80px;
+    nav{
+        display: flex;
+        @include list
+    }
+
+}
+
+.new_post,
+.edit_post,
+.new_comment{
+    background: $grey;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    margin: 10px;
+    ul{
+        background: rgb(219, 141, 141);
+        display: flex;
+        flex-direction: column;
+        li{
+            color: $red;
+        }
+    }
+    label{
+        font-size: 1.2em;
+    }
+    input[type=text], 
+    #post_content,
+    #comment_comment
+    {
+        padding: 10px;
+        font-size: 1.2em;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+    #post_content,
+    #comment_comment{
+        height: 100px;
+    }
+    input[type=submit]{
+        background: $font-color;
+        border: none;
+        color: $white;
+        height: 30px;
+        width: 20%;
+    }
+}
+.content{
+    margin: 50px;
+}
+#back{
+    margin-bottom: 50px;
+}
+.post{
+    background: $grey;
+    padding: 10px;
+    p{
+        font-size: 1.5em;
+    }
+}
+
+.edit-delete
+{
+    display: flex;
+    justify-content: flex-end;
+    #edit,
+    #delete {
+        @include delete;
+    }
+    #edit{
+        background: $font-color;
+    }
+    #delete{
+        background: $red;
+    }
+}
+.post #delete{
+    background: $red;
+    @include delete;
+}
+
+
+.count{
+    padding: 20px;
+    color: $green;
+}
