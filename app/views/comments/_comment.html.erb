@@ -1,0 +1,9 @@
+<%= content_for :page_title, "Comment" %>
+<h2><%= comment.name %></h2>
+<div class="post">
+    <p><%= comment.comment %></p>
+    <button id="delete">
+        <%= link_to "Delete", [comment.post, comment], 
+        method: :delete, data: { confirm: "Are you sure ?" } %>
+    </button>
+</div>
