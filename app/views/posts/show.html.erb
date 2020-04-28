@@ -8,8 +8,14 @@
         <button id="delete">
         <%= link_to "Delete", post_path(@post), 
         method: :delete, data: { confirm: "Are you sure ?" } %>
-        </button>
+        </button> 
     </div>
+    <p>
+        Tags:
+        <% @post.tags.each do |tag| %>
+            <%= link_to tag.name, tag_path(tag) %>
+        <% end %>
+    </p>
 </div>
 <div class="comment">
     <h3 class="count"><%= pluralize(@post.comments.count, "comment") %></h3>
@@ -17,4 +23,5 @@
     <%= render @post.comments %>
     <%= render "comments/form" %>
 </div>
+
 <h3 id="back"><%=link_to "Back", root_path %></h3>

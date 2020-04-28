@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  include PostsHelper
   before_action :find_post, only: %i[show update edit destroy]
   def about; end
 
@@ -39,10 +40,6 @@ class PostsController < ApplicationController
   end
 
   private
-
-  def post_params
-    params.require(:post).permit(:title, :content)
-  end
 
   def find_post
     @post = Post.find(params[:id])
