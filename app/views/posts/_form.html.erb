@@ -1,19 +1,24 @@
 <%=  form_for(@post, html: {multipart: true}) do |f|  %>
-    <ul>
-        <% @post.errors.full_messages.each do |error| %>
-            <li><%= error %></li>
+    <% if logged_in? %>
+        <ul>
+            <% @post.errors.full_messages.each do |error| %>
+                <li><%= error %></li>
+            <% end %>
+        </ul>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+        <%= f.label :content %>
+        <%= f.text_area :content %>
+        <%= f.label :tag_list %>
+        <%= f.text_field :tag_list %>
+        <% if @post.image.exists? %>
+            <%= image_tag @post.image.url %><br/>
         <% end %>
-    </ul>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-    <%= f.label :content %>
-    <%= f.text_area :content %>
-    <%= f.label :tag_list %>
-    <%= f.text_field :tag_list %>
-    <% if @post.image.exists? %>
-        <%= image_tag @post.image.url %><br/>
+        <%= f.label :image, "Attach a New Image" %>
+        <%= f.file_field :image %><br />
+        <%= f.submit %>
+    <% else %>
+        <%= "log in to execute this action" %>
     <% end %>
-    <%= f.label :image, "Attach a New Image" %>
-    <%= f.file_field :image %><br />
-    <%= f.submit %>
 <% end %>
+

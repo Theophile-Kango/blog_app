@@ -18,13 +18,15 @@
                 <%= link_to tag.name, tag_path(tag) %>
             <% end %>
         </p>
-        <div class="edit-delete">
-            <button id="edit"><%= link_to "Edit", edit_post_path(@post) %></button>
-            <button id="delete">
-            <%= link_to "Delete", post_path(@post), 
-            method: :delete, data: { confirm: "Are you sure ?" } %>
-            </button> 
-        </div>
+        <% if logged_in? %>
+            <div class="edit-delete">
+                <button id="edit"><%= link_to "Edit", edit_post_path(@post) %></button>
+                <button id="delete">
+                <%= link_to "Delete", post_path(@post), 
+                method: :delete, data: { confirm: "Are you sure ?" } %>
+                </button> 
+            </div>
+        <% end %>
     </div>
 </div>
 <div class="comment">

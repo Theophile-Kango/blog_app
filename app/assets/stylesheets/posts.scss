@@ -71,6 +71,14 @@ $red: rgb(219, 8, 8);
     }
 }
 
+#new-user{
+    border-top: 1px solid black;
+    margin-top: 30px;
+    a{
+        font-size: 2em;
+    }
+}
+
 .footer{
     background: $black;
     display: flex;
@@ -88,9 +96,7 @@ $red: rgb(219, 8, 8);
 
 }
 
-.new_post,
-.edit_post,
-.new_comment{
+form{
     background: $grey;
     display: flex;
     flex-direction: column;
@@ -107,7 +113,8 @@ $red: rgb(219, 8, 8);
     label{
         font-size: 1.2em;
     }
-    input[type=text], 
+    input[type=text],
+    input[type=password],
     #post_content,
     #comment_comment
     {
@@ -176,8 +183,12 @@ $red: rgb(219, 8, 8);
     background: $red;
     @include delete;
 }
-
-
+.edit_post{
+    img{
+        width: 200px;
+        border: 1px solid black;
+    }
+}
 .count{
     padding: 20px;
     color: $green;
