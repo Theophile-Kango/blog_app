@@ -5,8 +5,10 @@
         <p><%= comment.comment %></p>
         <small>commented on <%= comment.created_at %></small><br>
     </div>
-    <button id="delete">
-        <%= link_to "Delete", [comment.post, comment], 
-        method: :delete, data: { confirm: "Are you sure ?" } %>
-    </button>
+    <% if logged_in? %>
+        <button id="delete">
+            <%= link_to "Delete", [comment.post, comment], 
+            method: :delete, data: { confirm: "Are you sure ?" } %>
+        </button>
+    <% end %>
 </div>
