@@ -1,21 +1,31 @@
 <%= content_for :page_title, "View Post" %>
 <h2><%= @post.title %></h2>
+
 <div class="post">
-    <p><%= @post.content%></p>
-    <small>posted on <%= @post.created_at %></small>
-    <div class="edit-delete">
-        <button id="edit"><%= link_to "Edit", edit_post_path(@post) %></button>
-        <button id="delete">
-        <%= link_to "Delete", post_path(@post), 
-        method: :delete, data: { confirm: "Are you sure ?" } %>
-        </button> 
-    </div>
-    <p>
-        Tags:
-        <% @post.tags.each do |tag| %>
-            <%= link_to tag.name, tag_path(tag) %>
+    <div class="image">
+        <% if @post.image.exists? %>
+            <%= image_tag @post.image.url %><br/>
+        <% else %>
+            <p>No Image</p>
         <% end %>
-    </p>
+    </div>
+    <div class="text">
+        <p><%= @post.content%></p>
+        <small>posted on <%= @post.created_at %></small>
+        <p>
+            Tags:
+            <% @post.tags.each do |tag| %>
+                <%= link_to tag.name, tag_path(tag) %>
+            <% end %>
+        </p>
+        <div class="edit-delete">
+            <button id="edit"><%= link_to "Edit", edit_post_path(@post) %></button>
+            <button id="delete">
+            <%= link_to "Delete", post_path(@post), 
+            method: :delete, data: { confirm: "Are you sure ?" } %>
+            </button> 
+        </div>
+    </div>
 </div>
 <div class="comment">
     <h3 class="count"><%= pluralize(@post.comments.count, "comment") %></h3>

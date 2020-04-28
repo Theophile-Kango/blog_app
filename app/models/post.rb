@@ -2,6 +2,8 @@ class Post < ApplicationRecord
   has_many :comments
   has_many :taggins
   has_many :tags, through: :taggins
+  has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }
+  validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
   validates :title, presence: true
   validates :content, presence: true
   def tag_list
